@@ -1,6 +1,6 @@
 Graded Monads for Numerical Analysis
 
-Jessica Richards and JÃ³n HÃ¡kon GarÃ°arsson
+Jessica Richards and J&oacute;n H&aacute;kon Gar&eth;arsson
 
 
 Monads have been used to model computational effects, starting with Moggi.
