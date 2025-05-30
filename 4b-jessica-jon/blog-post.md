@@ -20,14 +20,12 @@ A *monad* consists of an endofunctor \(T : \mathbf C \to \mathbf C\) along with 
 
 For those who know about string diagrams, we can draw the multiplication \(\mu\) and unit \(\eta\) of a monad as:
 
-<;img
-src=";https://raw.githubusercontent.com/innoobijr/act-2025-blogs/refs/heads/main/4b-jessica-jon/blog_post_diagrams/Monad-laws-string-diagram.png";alt=";mu and eta for a monad, as a string diagram.";/>;
+<img src="https://raw.githubusercontent.com/innoobijr/act-2025-blogs/refs/heads/main/4b-jessica-jon/blog_post_diagrams/Monad-laws-string-diagram.png" alt="mu and eta for a monad, as a string diagram."/>
 
 in the monoidal category of endofunctors on \(\mathbf C\) with composition as the monoidal product.
 The associativity condition becomes:
 
-<;img
-src=";https://raw.githubusercontent.com/innoobijr/act-2025-blogs/refs/heads/main/4b-jessica-jon/blog_post_diagrams/Monad-laws-assoc.png";alt=";Associativity law for a monad, written as a string diagram.";/>;
+<img src="https://raw.githubusercontent.com/innoobijr/act-2025-blogs/refs/heads/main/4b-jessica-jon/blog_post_diagrams/Monad-laws-assoc.png" alt="Associativity law for a monad, written as a string diagram."/>
 
 #### Example 1:
 The list monad has the endofunctor \(X \mapsto \List X\) on \(\mathbf{Set}\),
@@ -79,8 +77,7 @@ Given a monoidal category $(\mathbf{M}, \otimes, I)$, an $\mathbf{M}$-*graded mo
 
 Which satisfy:
 
-<;img
-src=";https://raw.githubusercontent.com/innoobijr/act-2025-blogs/refs/heads/main/4b-jessica-jon/blog_post_diagrams/Graded-monad.png";alt=";Commutative diagrams for graded monads.";/>;
+<img src="https://raw.githubusercontent.com/innoobijr/act-2025-blogs/refs/heads/main/4b-jessica-jon/blog_post_diagrams/Graded-monad.png" alt="Commutative diagrams for graded monads."/>
 
 
 To see that this really is a generalisation of a monad, firstly note that if we look at the above diagrams and ignore everything in red, these are just the monad laws. Everything in red is trivial if our monoidal category is 1. So in fact, a monad can be seen as a 1-graded monad.
@@ -98,16 +95,14 @@ The powerset monad can be graded over cardinalities by considering subsets of mo
 We start with a brief background on why adjunctions are important for regular monads, then give an overview of the generalisations for graded monads. Given any adjunction $F \dashv G$ with $\mathbf{C}$ as the domain of $F$, we can construct a monad $GF: \mathbf{C} \rightarrow \mathbf{C}$ with the unit as that of the adjunction and multiplication as $G \circ \epsilon \circ F$ where $\epsilon$ is the counit of the adjunction. 
 
 
-<;img
-src=";https://raw.githubusercontent.com/innoobijr/act-2025-blogs/refs/heads/main/4b-jessica-jon/blog_post_diagrams/Adjunction.png";alt=";An adjunction.";/>;
+<img src="https://raw.githubusercontent.com/innoobijr/act-2025-blogs/refs/heads/main/4b-jessica-jon/blog_post_diagrams/Adjunction.png" alt="An adjunction."/>
 
 
 Now its all very interesting that we can make new monads appear from adjunctions but we really want to be able to make the monads we already cared about appear from adjunctions. For a monad $T$, if an adjunction $\langle F, G, \eta, \epsilon \rangle$ corresponds to $T$ via the above construction, it is called a *resolution* of $T$. And, for any monad $T$ there turns out to be two canonical ways to construct a resolution, via adjunctions to categories called the Eilenberg-Moore category $\mathbf{C}^T$ and the Kleisli category $\C_T$. These are canonical in the sense that they are the terminal and initial objects in the category of resolutions, respectively.
 
 These results turn out to generalise to graded monads. Instead of considering monads and adjunctions, we consider $\mathbf{M}$-graded monads and adjunctions $F \dashv G$ with an action $\triangleright$ of $\mathbf{M}$ on the codomain of $F$. Given such an adjunction and action, $m \mapsto G(m \triangleright F - )$ is a graded monad. We illustrate this in the following diagram, where $T$ is the composition of the relevant functors.
 
-<;img
-src=";https://raw.githubusercontent.com/innoobijr/act-2025-blogs/refs/heads/main/4b-jessica-jon/blog_post_diagrams/Graded-monad-decomp.png";alt=";The composition of adjunction and monoidal action.";/>;
+<img src="https://raw.githubusercontent.com/innoobijr/act-2025-blogs/refs/heads/main/4b-jessica-jon/blog_post_diagrams/Graded-monad-decomp.png" alt="The composition of adjunction and monoidal action."/>
 
 Conversely, we can construct Eilenberg-Moore and Kleisli categories for any graded monad to give canonical resolutions of it. The rest of this section will cover the Eilenberg-Moore and Kleisli categories in detail, both for a regular monad and the graded versions.
 
@@ -119,14 +114,12 @@ Conversely, we can construct Eilenberg-Moore and Kleisli categories for any grad
 Let \(T\) be a monad on a category \(\mathbf C\).
 A \(T\)-algebra consists of an object \(A\) and morphism \(h : TA \to A\) such that
 
-<;img
-src=";https://raw.githubusercontent.com/innoobijr/act-2025-blogs/refs/heads/main/4b-jessica-jon/blog_post_diagrams/T-algebra.png";alt=";T-algebra comm diagram.";/>;
+<img src="https://raw.githubusercontent.com/innoobijr/act-2025-blogs/refs/heads/main/4b-jessica-jon/blog_post_diagrams/T-algebra.png" alt="T-algebra comm diagram."/>
 
 commutes.
 A \(T\)-algebra homomorphism from \((A, h)\) to \((B, k)\) is a morphism \(f : A \to B\) such that the following diagram commutes
 
-<;img
-src=";https://raw.githubusercontent.com/innoobijr/act-2025-blogs/refs/heads/main/4b-jessica-jon/blog_post_diagrams/T-algebra-hom.png";alt=";T-algebra hom comm diagram.";/>;
+<img src="https://raw.githubusercontent.com/innoobijr/act-2025-blogs/refs/heads/main/4b-jessica-jon/blog_post_diagrams/T-algebra-hom.png" alt="T-algebra hom comm diagram."/>
 
 The \(T\)-algebras and \(T\)-algebra homomorphisms form the Eilenberg-Moore category $\mathbf{C}^T$. We have a resolution of $T$ given by $F \dashv U$ where:
 
@@ -145,14 +138,12 @@ The algebras of the writer monad are sets with monoid action.
 Let \(T\) be a \(M\)-graded monad on a category \(\mathbf C\) for a preordered monoid \(M\).
 A \(T\)-algebra consists of a functor \(A : M \to \mathbf C\) and a familiy of morphisms \(h_{m, n} : T_m A_n \to A_{m n}\) such that
 
-<;img
-src=";https://raw.githubusercontent.com/innoobijr/act-2025-blogs/refs/heads/main/4b-jessica-jon/blog_post_diagrams/Graded-T-algebra.png";alt=";Graded T-algebra comm diagram.";/>;
+<img src="https://raw.githubusercontent.com/innoobijr/act-2025-blogs/refs/heads/main/4b-jessica-jon/blog_post_diagrams/Graded-T-algebra.png" alt="Graded T-algebra comm diagram."/>
 
 
 A \(T\)-algebra homomorphism from \((A_i, h_{i,j})\) to \((B_i, k_{i,j})\) is a family of morphisms \(f_m : A_m \to B_m\) such that the following diagram commutes
 
-<;img
-src=";https://raw.githubusercontent.com/innoobijr/act-2025-blogs/refs/heads/main/4b-jessica-jon/blog_post_diagrams/Graded-T-algebra-hom.png";alt=";Graded T-algebra-hom comm diagram.";/>;
+<img src="https://raw.githubusercontent.com/innoobijr/act-2025-blogs/refs/heads/main/4b-jessica-jon/blog_post_diagrams/Graded-T-algebra-hom.png" alt="Graded T-algebra-hom comm diagram."/>
 
 for all \(m, n \in M\).
 
@@ -182,8 +173,7 @@ The algebras of this monad are graded modules over \((R_n)_n\) and the algebra h
 The Kleisli construction of a monad \(T\) on a category \(\mathbf C\) is a category with the same objects as \(\mathbf C\) but morphisms are now of the form \(X \to TY\).
 The composition of \(f : X \to TY\) and \(g : Y \to TZ\) is the morphism
 
-<;img
-src=";https://raw.githubusercontent.com/innoobijr/act-2025-blogs/refs/heads/main/4b-jessica-jon/blog_post_diagrams/Kleisli-comp.png";alt=";Diagram.";/>;
+<img src="https://raw.githubusercontent.com/innoobijr/act-2025-blogs/refs/heads/main/4b-jessica-jon/blog_post_diagrams/Kleisli-comp.png" alt="Diagram."/>
 
 and the identities are \(\eta_X : X \to TX\).
 
@@ -193,38 +183,32 @@ A morphism \(f : X \to Y\) can in a similar way be seen as a natural transformat
 So we can draw a morphism in string diagrams as
 
 
-<;img
-src=";https://raw.githubusercontent.com/innoobijr/act-2025-blogs/refs/heads/main/4b-jessica-jon/blog_post_diagrams/String-diagram-morphism.png";alt=";Diagram.";/>;
+<img src="https://raw.githubusercontent.com/innoobijr/act-2025-blogs/refs/heads/main/4b-jessica-jon/blog_post_diagrams/String-diagram-morphism.png" alt="Diagram."/>
 
 Let \(T : \mathbf C \to \mathbf C\) be an endofunctor.
 Then the object \(TX\) can be seen as a composition of functors \(\mathbf 1 \xrightarrow{X} \mathbf C \xrightarrow{T} \mathbf C\).
 We can draw this as follows
 
-<;img
-src=";https://raw.githubusercontent.com/innoobijr/act-2025-blogs/refs/heads/main/4b-jessica-jon/blog_post_diagrams/String-functor-comp.png";alt=";Diagram.";/>;
+<img src="https://raw.githubusercontent.com/innoobijr/act-2025-blogs/refs/heads/main/4b-jessica-jon/blog_post_diagrams/String-functor-comp.png" alt="Diagram."/>
 
 and a morphism \(Tf : TX \to TY\) as
 
 
-<;img
-src=";https://raw.githubusercontent.com/innoobijr/act-2025-blogs/refs/heads/main/4b-jessica-jon/blog_post_diagrams/String-TX-Tf-TY.png";alt=";Diagram.";/>;
+<img src="https://raw.githubusercontent.com/innoobijr/act-2025-blogs/refs/heads/main/4b-jessica-jon/blog_post_diagrams/String-TX-Tf-TY.png" alt="Diagram."/>
 
 
 We can draw a Kleisli morphism \(f : X \to TY\) with a string diagram as
 
-<;img
-src=";https://raw.githubusercontent.com/innoobijr/act-2025-blogs/refs/heads/main/4b-jessica-jon/blog_post_diagrams/String-Kleisli-morphism.png";alt=";Diagram.";/>;
+<img src="https://raw.githubusercontent.com/innoobijr/act-2025-blogs/refs/heads/main/4b-jessica-jon/blog_post_diagrams/String-Kleisli-morphism.png" alt="Diagram."/>
 
 
 and a composition \(X \xrightarrow{f} TY \xrightarrow{Tg} TTZ \xrightarrow{\mu_Z} TZ \) as
 
-<;img
-src=";https://raw.githubusercontent.com/innoobijr/act-2025-blogs/refs/heads/main/4b-jessica-jon/blog_post_diagrams/String-Kleisli-comp.png";alt=";Diagram.";/>;
+<img src="https://raw.githubusercontent.com/innoobijr/act-2025-blogs/refs/heads/main/4b-jessica-jon/blog_post_diagrams/String-Kleisli-comp.png" alt="Diagram."/>
 
 or just
 
-<;img
-src=";https://raw.githubusercontent.com/innoobijr/act-2025-blogs/refs/heads/main/4b-jessica-jon/blog_post_diagrams/String-Kleisli-comp-alt.png";alt=";Diagram.";/>;
+<img src="https://raw.githubusercontent.com/innoobijr/act-2025-blogs/refs/heads/main/4b-jessica-jon/blog_post_diagrams/String-Kleisli-comp-alt.png" alt="Diagram."/>
 
 A good way to get intuition for these string diagrams is to consider the case of the writer monad, then the diagrams become exactly the same as the string diagrams of a monoidal category.
 
@@ -241,8 +225,7 @@ under the equivalence relation
 \]
 if \(p \leq p'\) and
 
-<;img
-src=";https://raw.githubusercontent.com/innoobijr/act-2025-blogs/refs/heads/main/4b-jessica-jon/blog_post_diagrams/Graded-Kleisli-equiv.png";alt=";Diagram.";/>;
+<img src="https://raw.githubusercontent.com/innoobijr/act-2025-blogs/refs/heads/main/4b-jessica-jon/blog_post_diagrams/Graded-Kleisli-equiv.png" alt="Diagram."/>
 
 or \(p' \leq p\) and vice versa.
 
@@ -254,13 +237,11 @@ The identites are of the form \([1, \eta_X : X \to T_1 X, m 1 \leq m ]\).
 
 We can draw a (representative of a) Kleisli morphism with a string diagram as
 
-<;img
-src=";https://raw.githubusercontent.com/innoobijr/act-2025-blogs/refs/heads/main/4b-jessica-jon/blog_post_diagrams/Graded-Kleisli-morphism.png";alt=";Diagram.";/>;
+<img src="https://raw.githubusercontent.com/innoobijr/act-2025-blogs/refs/heads/main/4b-jessica-jon/blog_post_diagrams/Graded-Kleisli-morphism.png" alt="Diagram."/>
 
 Composition becomes
 
-<;img
-src=";https://raw.githubusercontent.com/innoobijr/act-2025-blogs/refs/heads/main/4b-jessica-jon/blog_post_diagrams/Graded-Kleisli-comp.png";alt=";Diagram.";/>;
+<img src="https://raw.githubusercontent.com/innoobijr/act-2025-blogs/refs/heads/main/4b-jessica-jon/blog_post_diagrams/Graded-Kleisli-comp.png" alt="Diagram."/>
 
 ### Locally graded categories
 
@@ -283,8 +264,7 @@ We can now make a functor from the Kleisli category to the graded one.
 Objects \((X, m)\) in the Kleisli category forget their grade and get sent to \(X\).
 A morphism \([p, f : X \to T_p Y, m p \leq n]\) from \((X, m)\) to \((Y, n)\) get sent to the \([m, n]\)-morphism
 
-<;img
-src=";https://raw.githubusercontent.com/innoobijr/act-2025-blogs/refs/heads/main/4b-jessica-jon/blog_post_diagrams/Graded-Kleisli-functor.png";alt=";Diagram.";/>;
+<img src="https://raw.githubusercontent.com/innoobijr/act-2025-blogs/refs/heads/main/4b-jessica-jon/blog_post_diagrams/Graded-Kleisli-functor.png" alt="Diagram."/>
 
 where the second map is upgraded with \(p \leq [m, n]\).
 This is well-defined.
@@ -292,14 +272,12 @@ This is well-defined.
 We can draw the morphisms in this category with string diagrams in a similar way to the non-graded Kleisli morphisms.
 A morphism \(f : X \to T_mY\) is drawn as
 
-<;img
-src=";https://raw.githubusercontent.com/innoobijr/act-2025-blogs/refs/heads/main/4b-jessica-jon/blog_post_diagrams/Graded-Kleisli-X-TmY.png";alt=";Diagram.";/>;
+<img src="https://raw.githubusercontent.com/innoobijr/act-2025-blogs/refs/heads/main/4b-jessica-jon/blog_post_diagrams/Graded-Kleisli-X-TmY.png" alt="Diagram."/>
 
 and the composition of \(f : X \to T_m Y\) and \(g : Y \to T_n Y\) as
 
-<;img
-src=";https://raw.githubusercontent.com/innoobijr/act-2025-blogs/refs/heads/
-    main/4b-jessica-jon/blog_post_diagrams/Graded-Kleisli-graded-comp.png";alt=";Diagram.";/>;
+<img src="https://raw.githubusercontent.com/innoobijr/act-2025-blogs/refs/heads/
+    main/4b-jessica-jon/blog_post_diagrams/Graded-Kleisli-graded-comp.png" alt="Diagram."/>
 
 
 ## Applications
@@ -329,8 +307,7 @@ Consider the locally graded category associated to this graded monad.
 We can think of a morphism \(f : X \to T_\varepsilon Y\) as two maps: a perfect map \(f : X \to Y\) and an approximate map \(\tilde f : X \to Y\) such that \(d(f(x), \tilde f(x)) \leq \varepsilon\).
 The composition of two such morphisms \(f : X \to T_\varepsilon Y\) and \(g : Y \to T_\delta Z\) could be interpreted as
 
-<;img
-src=";https://raw.githubusercontent.com/innoobijr/act-2025-blogs/refs/heads/main/4b-jessica-jon/blog_post_diagrams/Neighbourhood-monad.png";alt=";Diagram.";/>;
+<img src="https://raw.githubusercontent.com/innoobijr/act-2025-blogs/refs/heads/main/4b-jessica-jon/blog_post_diagrams/Neighbourhood-monad.png" alt="Diagram."/>
 
 ### Lipschitz comonad
 
