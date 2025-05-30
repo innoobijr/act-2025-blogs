@@ -1,7 +1,6 @@
-Graded Monads for Numerical Analysis
+# Graded Monads for Numerical Analysis
 
-Jessica Richards and J&oacute;n H&aacute;kon Gar&eth;arsson
-
+### Jessica Richards and J&oacute;n H&aacute;kon Gar&eth;arsson
 
 Monads have been used to model computational effects, starting with Moggi.
 They have successfully modeled various kinds of effects such as partiality, non-determinism, stateful computation, exceptions, reading input, writing output, and more. They do this in a fairly coarse manner, we just know whether something is effectful or not. So, although pretty useful, it can be a bit limiting for some effects.
