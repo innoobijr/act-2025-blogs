@@ -16,8 +16,7 @@ Before tackling graded monads we should remind ourselves of the definition of a 
 A *monad* consists of an endofunctor \(T : \mathbf C \to \mathbf C\) along with natural transformations \(\mu : T \circ T \Rightarrow T\) and \(\eta : \Id_{\mathbf C} \Rightarrow T\) such that the following diagrams commute:
 
 
-<;img
-src=";https://raw.githubusercontent.com/innoobijr/act-2025-blogs/refs/heads/main/4b-jessica-jon/blog_post_diagrams/Monad-laws.png";alt=";Commutative diagrams for a monad.";/>;
+<img src="https://raw.githubusercontent.com/innoobijr/act-2025-blogs/refs/heads/main/4b-jessica-jon/blog_post_diagrams/Monad-laws.png" alt="Commutative diagrams for a monad."/>
 
 For those who know about string diagrams, we can draw the multiplication \(\mu\) and unit \(\eta\) of a monad as:
 
