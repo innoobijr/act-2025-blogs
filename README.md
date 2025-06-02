@@ -1,5 +1,7 @@
 # Adjoint School Blogs
 
+*Note: If you are unfamiliar with git [please click this hyperlink for a quick 10 minute intro](https://www.freecodecamp.org/news/learn-the-basics-of-git-in-under-10-minutes-da548267cc91/). *
+
 **Short code**: Each blog post pair will have a short code associated to their blog post. For example Théo and Onkar blog has the short code `1b-theo-onkar`. This short code refers to two things: (1) the subdirectory that contains your blog posts and (2) the name of the branch that will contains the changes to your blog post.
 
 If you have sent me your email, you should be able to clone, checkout into your branch and push changes to this repo. See the instructions below. 
