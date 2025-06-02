@@ -10,7 +10,7 @@ If you have sent me your email, you should be able to clone, checkout into your 
 ## 2. Checkout to the branch containing your blog short code
 For example, Théo or Onkar could do the following:
 * A. Enter the directory
-``` cd act-2025-blogs````
+```cd act-2025-blogs```
 * B. Checkout into your branch
 ```git checkout 1b-theo-onkar```
 
