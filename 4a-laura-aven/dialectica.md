@@ -2,19 +2,33 @@
 
 In this blog post, we provide an overview of the *Dialectica categories* and explore their connection to **Bel**, the category of *backward error lenses*.
 <ul>
-    <li>Introduced by de Paiva [1], the Dialectica categories are categorical models of intuitionistic linear logic. From a base category <b>C</b>, we can construct a Dialectica category, abbreviated <b>DC</b>, such that logical formulas are interpreted as objects in <b>DC</b> and judgments are interpreted as morphisms.</li>
+    <li>Introduced by de Paiva [1], the Dialectica categories are categorical models of intuitionistic linear logic. Judgments in linear logic look like
+        
+    $$
+        \frac{\Gamma\vdash A\quad \Delta\vdash B}{\Gamma,\Delta\vdash A\ \text{and}\ B}
+    $$
+    
+    which shows us how to prove "$A$ and $B$" from assumptions $\Gamma$ and $\Delta$.
+    From a base category <b>C</b>, we can construct a Dialectica category, abbreviated <b>DC</b>, such that logical formulas are interpreted as objects in <b>DC</b> and judgments are interpreted as morphisms.</li>
     <li>The objects of <b>DC</b> are internal binary <i>relations</i> on <b>C</b>.</li>
     <li>The morphisms in <b>DC</b> are pairs of morphisms in <b>C</b> satisfying a certain condition. These morphisms are one of the earliest examples of <i>lenses</i>, a data accessor structure we see in functional programming.</li>
 </ul>
 
 Our goal is to use the Dialectica categories to inform our construction of a similar category, **Bel**, introduced by Kellison et al. [2].
 <ul>
-    <li><b>Bel</b> is the category used to interpret a linear type system, <span style="font-variant:small-caps;">Bean</span>, which derives bounds on roundoff error in numerical programs. We show soundness of these error bounds by interpreting <span style="font-variant:small-caps;">Bean</span> typing judgments as morphisms in <b>Bel</b>.</li>
+    <li><b>Bel</b> is the category used to interpret a linear type system, <span style="font-variant:small-caps;">Bean</span>, which derives bounds on roundoff error in numerical programs. We show soundness of these error bounds by interpreting <span style="font-variant:small-caps;">Bean</span> typing judgments as morphisms in <b>Bel</b>. Judgments in <span style="font-variant:small-caps;">Bean</span> look like
+        
+    $$
+        \frac{x,y\vdash \mathbf{add}\ x\ y \quad a,b\vdash\mathbf{mul}\ x\ y}{x,y,b\vdash \mathbf{let}\ a=\mathbf{add}\ x\ y\ \mathbf{in}\ \mathbf{mul}\ a\ b}
+    $$
+    
+    which shows us how to construct a numerical program with error bound guarantees from variables $x$, $y$, and $b$.
+    </li>
     <li>The objects of <b>Bel</b> are similar to metric spaces, and may be rewritten as families of relations on a set.</li>
     <li>The morphisms in <b>Bel</b> are triples of functions reminiscent of lenses.</li>
 </ul>
 
-Sound familiar? We thought so. Now, we're going to introduce linear logic and the categories **DC**, and compare them to <span style="font-variant:small-caps;">Bean</span> and the category **Bel**.
+Sound familiar? We thought so. Now, we're going to introduce linear logic and the categories **DC**, and compare them to <span style="font-variant:small-caps;">Bean</span> and the category **Bel**. The goal is to use techniques from the Dialectica categories to expand the possible typing judgments in <span style="font-variant:small-caps;">Bean</span>. For example, we want to be able to define higher-order functions and model effects in <span style="font-variant:small-caps;">Bean</span>.
 
 <span style="font-size:200%">Linear logic</span>
 
@@ -231,7 +245,7 @@ This result is a basic assumption for numerical error analysis.
 The smaller the backward error with respect to its inputs, the better an approximation the program. The known backward errors for basic operations is built in to <span style="font-variant:small-caps;">Bean</span>'s type system, but the novelty is that we can compose several of <span style="font-variant:small-caps;">Bean</span>'s rules to determine the backward error for larger programs, such as:
 
 $$
-    \frac{x:_\varepsilon\mathbb{R},y:_\varepsilon\mathbb{R}\vdash\mathbf{add}\ x\ y\quad a:_\varepsilon\mathbb{R},b:_\varepsilon\mathbb{R}\vdash \mathbf{mul}\ x\ y}{x:_{2\varepsilon}\mathbb{R},y:_{2\varepsilon}\mathbb{R},b:_\varepsilon\mathbb{R}\vdash \mathbf{let}\ a=\mathbf{add}\ x\ y\ \mathbf{in}\ \mathbf{mul}\ a\ b}
+    \frac{x:_\varepsilon\mathbb{R},y:_\varepsilon\mathbb{R}\vdash\mathbf{add}\ x\ y:\mathbb{R}\quad a:_\varepsilon\mathbb{R},b:_\varepsilon\mathbb{R}\vdash \mathbf{mul}\ x\ y:\mathbb{R}}{x:_{2\varepsilon}\mathbb{R},y:_{2\varepsilon}\mathbb{R},b:_\varepsilon\mathbb{R}\vdash \mathbf{let}\ a=\mathbf{add}\ x\ y\ \mathbf{in}\ \mathbf{mul}\ a\ b:\mathbb{R}}
 $$
 
 The program $\mathbf{let}\ a=\mathbf{add}\ x\ y\ \mathbf{in}\ \mathbf{mul}\ a\ b$ approximates the function $(x + y)\cdot b$ for real numbers $x,y,b$. Notice how the backward error bounds accumulated for $x$ and $y$ to $2\varepsilon$, since they were calculated earlier on in the program. 
@@ -339,7 +353,7 @@ and the categorical constructions still hold. Moreover, given two **DC** objects
 
 Now, we need only embed the second **Bel** lens condition into **DC**. One possibility is by requiring that the backward map is injective in its second component. This would allow us to recover an exact **Bel** map from a **DC** morphism. 
 
-Once we find such an embedding, we can work directly with constructions in **DC**, allowing us to enrich the <span style="font-variant:small-caps;">Bean</span> type system. For example, we would immediately be able to define higher-order functions in <span style="font-variant:small-caps;">Bean</span>, as we would have internal Homs in **Bel**. With a little more work, we could define monads for modeling effects. In any case, the deep correspondence between **DC** and **Bel** is remarkable and unexpected. 
+Once we find such an embedding, we can work directly with constructions in **DC**, allowing us to enrich the <span style="font-variant:small-caps;">Bean</span> type system. For example, we would immediately be able to define higher-order functions in <span style="font-variant:small-caps;">Bean</span>, as we would have internal Homs in **Bel**. With a little more work, we could define monads for modeling effects and probabilistic programs. In any case, the deep correspondence between **DC** and **Bel** is remarkable and unexpected. 
 
 <span style="font-size:200%">References</span>
 
