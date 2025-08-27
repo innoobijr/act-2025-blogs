@@ -1,5 +1,6 @@
 **Burrito Monads, Arrow Kitchens, and Freyd Category Recipes**
-*guest post by [Khyathi Komalan]() and [Andrew Krenz]()
+
+*guest post by [Khyathi Komalan]() and [Andrew Krenz]()*
 
 **I. Introduction**
 From Lawvere's [Hegelian taco](http://ncatlab.org/nlab/show/Hegelian+taco) to Baez's [layer cake analogy](https://math.ucr.edu/home/baez/cohomology.pdf) to Eugenia Cheng's _How to Bake Pi_, categorists have cultivated a rich tradition of culinary metaphors and similes. A well-known example in the world of computation is Mark Dominus's ["monads are like burritos"](https://blog.plover.com/prog/burritos.html) — where a tortilla (computational context) wraps diverse ingredients (values) to create a cohesive entity (effectful value) whose burrito structure is maintained as the meal moves down the assembly line (undergoes computations).
