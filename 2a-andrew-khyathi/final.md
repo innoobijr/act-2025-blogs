@@ -1,6 +1,7 @@
-# Burrito Monads, Arrow Kitchens, and Freyd Category Recipes
+** Burrito Monads, Arrow Kitchens, and Freyd Category Recipes **
+*guest post by [Khyathi Komalan]() and [Andrew Krenz]()
 
-## Introduction
+** I. Introduction**
 From Lawvere's [Hegelian taco](http://ncatlab.org/nlab/show/Hegelian+taco) to Baez's [layer cake analogy](https://math.ucr.edu/home/baez/cohomology.pdf) to Eugenia Cheng's _How to Bake Pi_, categorists have cultivated a rich tradition of culinary metaphors and similes. A well-known example in the world of computation is Mark Dominus's ["monads are like burritos"](https://blog.plover.com/prog/burritos.html) — where a tortilla (computational context) wraps diverse ingredients (values) to create a cohesive entity (effectful value) whose burrito structure is maintained as the meal moves down the assembly line (undergoes computations).
 
 Monads, like burritos, come in many different varieties. In computer science monads serve to streamline computational patterns such as exception handling and context management.  We illustrate these two examples by analogy.
@@ -119,12 +120,12 @@ As a part of the Adjoint School, our group has been focusing on [R. Atkey's](htt
 ---
 
 
-## Beyond the Kitchen: Arrows and Freyd Categories
+** II. Beyond the Kitchen: Arrows and Freyd Categories ** 
 
 Formally, a monad on a category $C$ is a monoid in the category of endofunctors of $C$.  [Arrows, like monads, are monoids](https://www.sciencedirect.com/science/article/pii/S1571066106001666) in a certain category of functors.  To be more specific, the structure of an Arrow on a category $C$ can be described as a monoid in the category of strong profunctors on $C$.  Let's take a closer look at this construction. <!--So far, we've explored monads through concrete examples like the maybe monad and the reader monad, and mentioned that arrows are a further generalization of the computational structure that monads offer. Freyd categories offer a similar concept, as we briefly discussed earlier — we will now describe what these structures offer before pitting them against each other.-->
 
 
-### Arrows
+** II.A Arrows **
 
 <!-- To understand arrows from a categorical perspective, a good place to start would be by defining them as monoids in a category of strong profunctors. There are two definitions of arrows that we will explore in this blog post, and the profunctor definition is one of them.
 
@@ -216,7 +217,7 @@ The Arrow law $\text{first}(a)\ggg \text{arr}(\text{id} \times f)=\text{arr}(\te
 
 Two Arrow laws trivialise as a result of our example, so diagrams aren't produced. The first such law is $\text{arr}(f;g)=\text{arr}(f)\ggg \text{arr}(g).$ For our example, this law trivialises, as $\ggg : = \text{composition}$ and $\text{arr} := \text{id}_{(Y^X)}.$ The second law to trivialise is $\text{first}(\text{arr}(f))=\text{arr}(f \times \text{id})$ since we have set $\text{first}(f) := f \times \text{id}.$
 
-### Freyd Categories
+** II. B Freyd Categories **
 
 To understand Freyd categories, we must first define what a symmetric premonoidal category is.
 
@@ -242,7 +243,7 @@ Now, we can define a Freyd category, recalling the definition from the introduct
   - Preserves symmetric premonoidal structure.
   - Ensures $J(f)$ is always central.
   
-### Arrows vs Freyd Categories: Similarities and Differences
+** II. C Arrows vs Freyd Categories: Similarities and Differences **
 
 At first glance, the definition of a Freyd category appears strikingly similar to that of an Arrow. This apparent similarity led to the folklore belief that they were equivalent structures.
 
@@ -299,7 +300,7 @@ R. Atkey's paper finds the relationship between Arrows and different constraints
 
 ---
 
-## Applications and Questions 
+** III. Applications and Questions ** 
 
 <!--Atkey's work helped us realize the subtle differences between Arrows and Freyd categories.  By carefully examining the mathematical structure, he demonstrated that Arrows are more general than Freyd categories.
 
