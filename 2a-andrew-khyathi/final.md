@@ -11,7 +11,7 @@ Imagine you work at a burrito truck.
 If a customer orders a burrito sans <!--without--> rice but rice is accidentally added, it can't be served. The **Maybe monad** handles exceptions such as this — when something goes wrong, it returns a special "Nothing" value rather than a flawed result, and once a failure occurs, all subsequent steps automatically preserve this state avoiding the need for repetitive error-checking.
 
 <figure align="center">
-  <img src="maybe monad.png" alt="Diagram 1" width="70%"/>
+  <img src="https://github.com/innoobijr/act-2025-blogs/blob/7c1a76ad6d4ca3bb4ad1dd4b1e9d7b704addff62/2a-andrew-khyathi/maybe_monad.png" alt="Diagram 1" width="70%"/>
   <figcaption><em>Figure 1: The Maybe Monad illustrated with the burrito-making process</em></figcaption>
 </figure>
 
@@ -42,7 +42,7 @@ Now suppose one of your regular customers walks up to the window and orders "the
 <!-- incorporates this context like pages of a recipe book; it's like a special burrito wrapper that carries customer preferences and makes them available at every preparation step. whether we're adding protein, vegetables, or salsa, we can avoid. The same burrito-making process adapts automatically to each customer's "environment". **Reader monads** model such computations that depend on some global state.-->
 
 <figure align="center">
-  <img src="reader monad.png" alt="Diagram 2" width="70%"/>
+  <img src="https://github.com/innoobijr/act-2025-blogs/blob/7c1a76ad6d4ca3bb4ad1dd4b1e9d7b704addff62/2a-andrew-khyathi/reader_monad.png" alt="Diagram 2" width="70%"/>
   <figcaption><em>Figure 2: The Reader Monad illustrated with the burrito-making process</em></figcaption>
 </figure>
 
@@ -81,7 +81,7 @@ first :: a x y -> a (x,z) (y,z)
 These data are subject to 9 axioms, which we eventually discuss below. 
 
 <figure align="center">
-  <img src="arrows.png" alt="Diagram 3" width="70%"/>
+  <img src="https://github.com/innoobijr/act-2025-blogs/blob/7c1a76ad6d4ca3bb4ad1dd4b1e9d7b704addff62/2a-andrew-khyathi/arrows.png" alt="Diagram 3" width="70%"/>
   <figcaption><em>Figure 3: Arrow Operations. The three fundamental operations of Arrows enable complex workflows beyond monadic structures.</em></figcaption>
 </figure>
 
@@ -96,7 +96,7 @@ A Freyd category consists of three main components:
 4. An identity-on-objects functor $J:C \to K$ which faithfully translates pure recipes into physical processes that work within the specific setup of the kitchen $K$.<!--, ensuring that basic operations preserve the structure of the recipe.-->
 
 <figure align="center">
-  <img src="freyd categories.png" alt="Diagram 4" width="70%"/>
+  <img src="https://github.com/innoobijr/act-2025-blogs/blob/7c1a76ad6d4ca3bb4ad1dd4b1e9d7b704addff62/2a-andrew-khyathi/freyd_categories.png" alt="Diagram 4" width="70%"/>
   <figcaption><em>Figure 4: Freyd Category Structure. The relationship between pure recipes (category C) and real-world kitchen operations (category K), connected by the identity-on-objects functor J that preserves structure while accommodating practical constraints.</em></figcaption>
 </figure>
 
@@ -169,7 +169,7 @@ These data are subject to nine axioms which govern their interactions. To make t
 The Arrow laws $\text{arr}(\text{id})\ggg a=a$ and $a\ggg \text{arr}(\text{id})=a$ express left and right unitality of identities under composition.
 
 <figure align="center">
-  <img src="arrowlaw1.png" alt="Diagram 5" width="70%"/>
+  <img src="https://github.com/innoobijr/act-2025-blogs/blob/7c1a76ad6d4ca3bb4ad1dd4b1e9d7b704addff62/2a-andrew-khyathi/arrowlaw1.png" alt="Diagram 5" width="70%"/>
   <figcaption><em>Figure 5: Arrow Laws </em></figcaption>
 </figure>
 
@@ -177,7 +177,7 @@ The Arrow laws $\text{arr}(\text{id})\ggg a=a$ and $a\ggg \text{arr}(\text{id})=
 The Arrow law $(a \ggg b)\ggg c=a \ggg (b \ggg c),$ represents associativity of composition.
 
 <figure align="center">
-  <img src="arrowlaw2.png" alt="Diagram 6" width="70%"/>
+  <img src="https://github.com/innoobijr/act-2025-blogs/blob/7c1a76ad6d4ca3bb4ad1dd4b1e9d7b704addff62/2a-andrew-khyathi/arrowlaw2.png" alt="Diagram 6" width="70%"/>
   <figcaption><em>Figure 6: Arrow Laws </em></figcaption>
 </figure>
 
@@ -185,7 +185,7 @@ The Arrow law $(a \ggg b)\ggg c=a \ggg (b \ggg c),$ represents associativity of 
 The Arrow law $\text{first}(a\ggg b)=\text{first}(a)\ggg \text{first}(b)$ encodes functoriality of $- \times W: C \to C$.
 
 <figure align="center">
-  <img src="arrowlaw3.png" alt="Diagram 7" width="70%"/>
+  <img src="https://github.com/innoobijr/act-2025-blogs/blob/7c1a76ad6d4ca3bb4ad1dd4b1e9d7b704addff62/2a-andrew-khyathi/arrowlaw3.png" alt="Diagram 7" width="70%"/>
   <figcaption><em>Figure 7: Arrow Laws </em></figcaption>
 </figure>
 
@@ -193,7 +193,7 @@ The Arrow law $\text{first}(a\ggg b)=\text{first}(a)\ggg \text{first}(b)$ encode
 The Arrow law $\text{first}(a)\ggg \text{arr}(\pi_{1})=\text{arr}(\pi_{1})\ggg a$ express naturality of the counit $- \times W \to \text{id}_{C}$, i.e., the first projection maps.
 
 <figure align="center">
-  <img src="arrowlaw4.png" alt="Diagram 8" width="70%"/>
+  <img src="https://github.com/innoobijr/act-2025-blogs/blob/7c1a76ad6d4ca3bb4ad1dd4b1e9d7b704addff62/2a-andrew-khyathi/arrowlaw4.png" alt="Diagram 8" width="70%"/>
   <figcaption><em>Figure 8: Arrow Laws </em></figcaption>
 </figure>
 
@@ -201,7 +201,7 @@ The Arrow law $\text{first}(a)\ggg \text{arr}(\pi_{1})=\text{arr}(\pi_{1})\ggg a
 The Arrow law $\text{first}(a)\ggg \text{arr}(\alpha)=\text{arr}(\alpha)\ggg \text{first}(\text{first}(a))$ asks that $\text{first}$ play nicely with associators.
 
 <figure align="center">
-  <img src="arrowlaw5.png" alt="Diagram 9" width="70%"/>
+  <img src="https://github.com/innoobijr/act-2025-blogs/blob/7c1a76ad6d4ca3bb4ad1dd4b1e9d7b704addff62/2a-andrew-khyathi/arrowlaw5.png" alt="Diagram 9" width="70%"/>
   <figcaption><em>Figure 9: Arrow Laws </em></figcaption>
 </figure>
 
@@ -209,7 +209,7 @@ The Arrow law $\text{first}(a)\ggg \text{arr}(\alpha)=\text{arr}(\alpha)\ggg \te
 The Arrow law $\text{first}(a)\ggg \text{arr}(\text{id} \times f)=\text{arr}(\text{id} \times f)\ggg \text{first}(a)$ is an interchange law which says $\text{id} \times g:(- \times W) \to (- \times W')$ is a natural transformation for every $g:W \to W'$ in $C$.
 
 <figure align="center">
-  <img src="arrowlaw6.png" alt="Diagram 10" width="70%"/>
+  <img src="https://github.com/innoobijr/act-2025-blogs/blob/7c1a76ad6d4ca3bb4ad1dd4b1e9d7b704addff62/2a-andrew-khyathi/arrowlaw6.png" alt="Diagram 10" width="70%"/>
   <figcaption><em>Figure 10: Arrow Laws </em></figcaption>
 </figure>
 
@@ -274,7 +274,7 @@ To bridge this gap, Atkey introduced the concept of **indexed Freyd categories**
 In our culinary metaphor, we can understand this relationship as follows: a Freyd category is like a restaurant that can only take one order at a time (a single input), while Arrows are like a more sophisticated establishment that can handle both individual orders and special requests that come with their own context (two inputs, one potentially structured). The closed indexed Freyd categories that Atkey identifies represent the perfect middle ground — restaurants that can efficiently manage multiple orders with specialized instructions while maintaining the core operational principles that make kitchens function. This is particularly valuable when preparing complex "quantum dishes" where ingredients might be entangled and interact with each other in non-local ways.
 
 <figure align="center">
-  <img src="indexedfreyd.png" alt="Diagram 11" width="70%"/>
+  <img src="https://github.com/innoobijr/act-2025-blogs/blob/7c1a76ad6d4ca3bb4ad1dd4b1e9d7b704addff62/2a-andrew-khyathi/indexedfreyd.png" alt="Diagram 11" width="70%"/>
   <figcaption><em>Figure 11: Arrows vs. Freyd Categories. Arrows support two inputs (one potentially structured) and are equivalent to Closed Indexed Freyd Categories, which generalize standard Freyd Categories that handle only single inputs. </em></figcaption>
 </figure>
 
@@ -284,7 +284,7 @@ This distinction helps explain why [Arrows have proven particularly useful in do
 R. Atkey's paper finds the relationship between Arrows and different constraints on Freyd categories as follows: 
 
 <figure align="center">
-  <img src="bigdiagram.png" alt="Diagram 12" width="70%"/>
+  <img src="https://github.com/innoobijr/act-2025-blogs/blob/7c1a76ad6d4ca3bb4ad1dd4b1e9d7b704addff62/2a-andrew-khyathi/bigdiagram.png" alt="Diagram 12" width="70%"/>
   <figcaption><em>Figure 12: Relationship Between Structures</em></figcaption>
 </figure>
 
