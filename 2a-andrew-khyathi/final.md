@@ -1,16 +1,17 @@
-**Burrito Monads, Arrow Kitchens, and Freyd Category Recipes**
+ **Burrito Monads, Arrow Kitchens, and Freyd Category Recipes** 
 
 *guest post by [Khyathi Komalan]() and [Andrew Krenz]()*
 
-**I. Introduction**
 From Lawvere's [Hegelian taco](http://ncatlab.org/nlab/show/Hegelian+taco) to Baez's [layer cake analogy](https://math.ucr.edu/home/baez/cohomology.pdf) to Eugenia Cheng's _How to Bake Pi_, categorists have cultivated a rich tradition of culinary metaphors and similes. A well-known example in the world of computation is Mark Dominus's ["monads are like burritos"](https://blog.plover.com/prog/burritos.html) — where a tortilla (computational context) wraps diverse ingredients (values) to create a cohesive entity (effectful value) whose burrito structure is maintained as the meal moves down the assembly line (undergoes computations).
+
+------
 
 Monads, like burritos, come in many different varieties. In computer science monads serve to streamline computational patterns such as exception handling and context management.  We illustrate these two examples by analogy.
 
 <!-- when workin at a burrito truck, one might face two scenarios:-->
 Imagine you work at a burrito truck.
 
-If a customer orders a burrito sans <!--without--> rice but rice is accidentally added, it can't be served. The**Maybe monad**handles exceptions such as this — when something goes wrong, it returns a special "Nothing" value rather than a flawed result, and once a failure occurs, all subsequent steps automatically preserve this state avoiding the need for repetitive error-checking.
+If a customer orders a burrito sans <!--without--> rice but rice is accidentally added, it can't be served. The ** Maybe monad ** handles exceptions such as this — when something goes wrong, it returns a special "Nothing" value rather than a flawed result, and once a failure occurs, all subsequent steps automatically preserve this state avoiding the need for repetitive error-checking.
 
 <figure align="center">
   <img src="https://github.com/innoobijr/act-2025-blogs/blob/2a-andrew-khyathi/2a-andrew-khyathi/maybe_monad.png" alt="Diagram 1" width="70%"/>
@@ -29,7 +30,7 @@ the return function has type a -> Maybe a, which is suggestive of its role as th
 
 A slight generalization allows for descriptive error messages.
 
-**Definition.**Given a collection of exceptions $E$, there is an associated**Either monad**$((-)+E, \eta, \mu)$.
+ **Definition.** Given a collection of exceptions $E$, there is an associated **Either monad** $((-)+E, \eta, \mu)$.
 
 
 * $\eta_X:X \to X + E$ is the coproduct insertion 
@@ -39,16 +40,16 @@ A slight generalization allows for descriptive error messages.
 
 Of course, either monads are simply maybe monads with a set in place of the constant/singleton "Nothing" and they allow us not only to say *that* an error has occured, but also to indicate *what* that error was.
 
-Now suppose one of your regular customers walks up to the window and orders "the usual."  Luckily you've recorded their preferences in a recipe book.  The act of following the appropriate recipe is akin to executing computations that depend on a global read-only state. The**Reader monad**is the functional programmer's way of incorporating this impure concept in pure functional terms. 
+Now suppose one of your regular customers walks up to the window and orders "the usual."  Luckily you've recorded their preferences in a recipe book.  The act of following the appropriate recipe is akin to executing computations that depend on a global read-only state. The ** Reader monad ** is the functional programmer's way of incorporating this impure concept in pure functional terms. 
 
-<!-- incorporates this context like pages of a recipe book; it's like a special burrito wrapper that carries customer preferences and makes them available at every preparation step. whether we're adding protein, vegetables, or salsa, we can avoid. The same burrito-making process adapts automatically to each customer's "environment".**Reader monads**model such computations that depend on some global state.-->
+<!-- incorporates this context like pages of a recipe book; it's like a special burrito wrapper that carries customer preferences and makes them available at every preparation step. whether we're adding protein, vegetables, or salsa, we can avoid. The same burrito-making process adapts automatically to each customer's "environment". **Reader monads** model such computations that depend on some global state.-->
 
 <figure align="center">
   <img src="https://github.com/innoobijr/act-2025-blogs/blob/2a-andrew-khyathi/2a-andrew-khyathi/reader_monad.png" alt="Diagram 2" width="70%"/>
   <figcaption><em>Figure 2: The Reader Monad illustrated with the burrito-making process</em></figcaption>
 </figure>
 
-**Definition.**Given a collection of environments $E$, there is an associated**Reader monad**$((-)^E, \eta, \mu)$.
+ **Definition.** Given a collection of environments $E$, there is an associated **Reader monad** $((-)^E, \eta, \mu)$.
 
 * $\eta_X : X \to X^E$ turns elements into constant functions $x \mapsto \lambda e. x$
 * $\mu_X : (X^E)^E \to X^E$ turns function-valued functions into functions via diagonal evaluation $f \mapsto \lambda e. f(e)(e)$
@@ -113,7 +114,7 @@ As a part of the Adjoint School, our group has been focusing on [R. Atkey's](htt
 
 ---
 
-**Key Insights:**
+ **Key Insights:** 
 - Monads encapsulate computational effects by wrapping values in contexts, much like burritos wrap ingredients in tortillas
 - Different monads (Maybe, Reader, etc...) deal with different patterns like exception handling and context management
 - Arrows generalize monads to handle multiple inputs and coordinate complex processes, like managing an entire kitchen rather than just making individual burritos
@@ -121,12 +122,12 @@ As a part of the Adjoint School, our group has been focusing on [R. Atkey's](htt
 ---
 
 
-**II. Beyond the Kitchen: Arrows and Freyd Categories**
+ **Beyond the Kitchen: Arrows and Freyd Categories** 
 
 Formally, a monad on a category $C$ is a monoid in the category of endofunctors of $C$.  [Arrows, like monads, are monoids](https://www.sciencedirect.com/science/article/pii/S1571066106001666) in a certain category of functors.  To be more specific, the structure of an Arrow on a category $C$ can be described as a monoid in the category of strong profunctors on $C$.  Let's take a closer look at this construction. <!--So far, we've explored monads through concrete examples like the maybe monad and the reader monad, and mentioned that arrows are a further generalization of the computational structure that monads offer. Freyd categories offer a similar concept, as we briefly discussed earlier — we will now describe what these structures offer before pitting them against each other.-->
 
 
-**II.A Arrows**
+ **Arrows** 
 
 <!-- To understand arrows from a categorical perspective, a good place to start would be by defining them as monoids in a category of strong profunctors. There are two definitions of arrows that we will explore in this blog post, and the profunctor definition is one of them.
 
@@ -148,7 +149,7 @@ The definition of Arrows in terms of the category of profunctors shows how they 
 <!-- Having examined Arrows as monoids in categories of profunctors, we now turn to their concrete definition in terms of operations. -->
 We will now unpack this data to reach a more down-to-earth description of Arrows.  This resulting characterization aligns more closely with the way in which Arrows are implemented in programming languages like Haskell.
 
-**Definition.**An**Arrow**in a cartesian closed category $C$ consists of a mapping on objects and three families of morphisms:
+ **Definition.**  An **Arrow**  in a cartesian closed category $C$ consists of a mapping on objects and three families of morphisms:
 
 * A mapping on objects $\text{Ar} : \text{ob}(C) \times \text{ob}(C) \to \text{ob}(C)$
   
@@ -218,11 +219,11 @@ The Arrow law $\text{first}(a)\ggg \text{arr}(\text{id} \times f)=\text{arr}(\te
 
 Two Arrow laws trivialise as a result of our example, so diagrams aren't produced. The first such law is $\text{arr}(f;g)=\text{arr}(f)\ggg \text{arr}(g).$ For our example, this law trivialises, as $\ggg : = \text{composition}$ and $\text{arr} := \text{id}_{(Y^X)}.$ The second law to trivialise is $\text{first}(\text{arr}(f))=\text{arr}(f \times \text{id})$ since we have set $\text{first}(f) := f \times \text{id}.$
 
-**II. B Freyd Categories**
+ **Freyd Categories** 
 
 To understand Freyd categories, we must first define what a symmetric premonoidal category is.
 
-**Definition.**A**symmetric premonoidal category**includes:
+ **Definition.** A **symmetric premonoidal category** includes:
 
 - An object $I$ (unit).
 - Natural transformations that define how objects interact:
@@ -230,13 +231,13 @@ To understand Freyd categories, we must first define what a symmetric premonoida
   - Left unitor: $\lambda : x \otimes I \to x$
   - Right unitor: $\rho : I \otimes x \to x$
   - Symmetry: $\sigma : x \otimes y \to y \otimes x$
-- All components are**central**.
+- All components are **central** .
 
-A morphism $f : x \to x'$ is**central**if $\forall g:y \to y', \quad f \otimes y ; x' \otimes g = x \otimes g ; f \otimes y'$
+A morphism $f : x \to x'$ is **central** if $\forall g:y \to y', \quad f \otimes y ; x' \otimes g = x \otimes g ; f \otimes y'$
 
 Now, we can define a Freyd category, recalling the definition from the introduction.
 
-**Definition.**A**Freyd category**consists of:
+ **Definition.** A **Freyd category** consists of:
 
 - A category $C$ with finite products.
 - A symmetric premonoidal category $K$.
@@ -244,7 +245,7 @@ Now, we can define a Freyd category, recalling the definition from the introduct
   - Preserves symmetric premonoidal structure.
   - Ensures $J(f)$ is always central.
   
-**II. C Arrows vs Freyd Categories: Similarities and Differences**
+ **Arrows vs Freyd Categories: Similarities and Differences** 
 
 At first glance, the definition of a Freyd category appears strikingly similar to that of an Arrow. This apparent similarity led to the folklore belief that they were equivalent structures.
 
@@ -262,16 +263,16 @@ In our culinary metaphor, this loosely translates to:
 
 Recalling the how we've interpreted Arrows in the cullinary setting, the apparent correspondence between Arrows and Fryed categories seemes quite natural.  In fact, for many years the two concepts were thought to be two ways of speaking about the same thing among those in the programming languages community.
 
-However, Atkey's work revealed a crucial distinction:**Arrows are more general than Freyd categories**. The key difference lies in how they handle inputs:
+However, Atkey's work revealed a crucial distinction: **Arrows are more general than Freyd categories** . The key difference lies in how they handle inputs:
 
 - Freyd categories allow only a single input to computations
 - Arrows support two separate inputs:
   - One may be structured (modeled using comonads)
   - This additional flexibility allows Arrows to represent computations that Freyd categories cannot
 
-To bridge this gap, Atkey introduced the concept of**indexed Freyd categories**, which can model two structured inputs. The relationship can be summarized as:
+To bridge this gap, Atkey introduced the concept of **indexed Freyd categories** , which can model two structured inputs. The relationship can be summarized as:
 
-**Arrows are equivalent to Closed Indexed Freyd Categories**
+ **Arrows are equivalent to Closed Indexed Freyd Categories** 
 
 In our culinary metaphor, we can understand this relationship as follows: a Freyd category is like a restaurant that can only take one order at a time (a single input), while Arrows are like a more sophisticated establishment that can handle both individual orders and special requests that come with their own context (two inputs, one potentially structured). The closed indexed Freyd categories that Atkey identifies represent the perfect middle ground — restaurants that can efficiently manage multiple orders with specialized instructions while maintaining the core operational principles that make kitchens function. This is particularly valuable when preparing complex "quantum dishes" where ingredients might be entangled and interact with each other in non-local ways.
 
@@ -293,7 +294,7 @@ R. Atkey's paper finds the relationship between Arrows and different constraints
 
 ---
 
-**Key Insights:**
+ **Key Insights:** 
 - Arrows can be defined both as monoids in categories of strong profunctors and operationally through concrete morphisms ($\text{arr}$, $\ggg$, $\text{first}$)
 - Freyd categories formalize the relationship between pure functions and effectful computations using symmetric premonoidal structure
 - Despite the folklore belief, Arrows are strictly more general than Freyd categories because they can handle two separate inputs (one potentially structured)
@@ -301,7 +302,7 @@ R. Atkey's paper finds the relationship between Arrows and different constraints
 
 ---
 
-**III. Applications and Questions**
+ **Applications and Questions** 
 
 <!--Atkey's work helped us realize the subtle differences between Arrows and Freyd categories.  By carefully examining the mathematical structure, he demonstrated that Arrows are more general than Freyd categories.
 
